@@ -22,14 +22,14 @@ const circle2 = {
 const circle3 = {
     x: 0,
     y: 100,
-    amplitude: circle2.amplitude + 2,
+    amplitude: circle2.amplitude + 1,
     angle: 0,
     phase: 0,
     diam: 0.4,
 };
 
 function Circ1() {
-    ctx.fillStyle = "blue";
+    ctx.fillStyle = "#131E3A";
     //ctx.clearRect(0, 0, canvas.width, canvas.height);
 
     circle.x = circle.x + 0.3;  // Movendo o círculo para a direita
@@ -58,7 +58,7 @@ function Circ1() {
 }
 
 function Circ2() {
-    ctx.fillStyle = "red";
+    ctx.fillStyle = "#1134A6";
     //ctx.clearRect(0, 0, canvas.width, canvas.height);
 
     circle2.x = circle.x + 0.3;  // Movendo o círculo para a direita
@@ -87,7 +87,7 @@ function Circ2() {
 }
 
 function Circ3() {
-    ctx.fillStyle = "green";
+    ctx.fillStyle = "#008ECC";
     //ctx.clearRect(0, 0, canvas.width, canvas.height);
 
     circle3.x = circle2.x + 0.3;  // Movendo o círculo para a direita
