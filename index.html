@@ -16,30 +16,47 @@
             <div class="label">
                 <img src="assets/wave1.svg" class="svgwave" id="wave1">
                 <b>Onda 1</b>
-                <div class="slider">
-                    <input type="range" min="0" max="100" value="50" class="slider" id="onda1">
-                </div>
-                <div>
-                    <input type="checkbox" id="myCheckbox">
-                    <label for="myCheckbox">Ver</label>
-                </div>
             </div>
-            
+            <div>
+                <label for="onda1">Vento na Onda 1 (1-10)</label>
+                <input type="range" min="1" max="10" value="0" class="slider" id="onda1">
+            </div>
+            <div>
+                <label for="check1">Ver Onda 1</label>
+                <input type="checkbox" id="check1" checked>
+            </div>                
         </div>
-        <div class="wave" style="border-left: 2px solid #008ECC;border-right: 2px solid #008ECC;;">
+        <div class="wave" style="border-left: 3px solid #008ECC;border-right: 3px solid #008ECC;">
             <div class="label">
                 <img src="assets/wave2.svg" class="svgwave" id="wave1">
-                <b>Onda 1</b>
-            </div>  
+                <b>Onda 2</b>
+            </div>
+            <div>
+                <label for="onda2">Vento na Onda 2 (1-10)</label>
+                <input type="range" min="1" max="10" value="0" class="slider" id="onda2">
+            </div>
+            <div>
+                <label for="check2">Ver Onda 2</label>
+                <input type="checkbox" id="check2" checked>
+            </div> 
         </div>
         <div class="wave">
             <div class="label">
                 <img src="assets/wave3.svg" class="svgwave" id="wave1">
-                <b>Onda 1</b>
+                <b>Onda 3</b>
+            </div>
+            <div>
+                <label for="onda3">Vento na Onda 3 (1-10)</label>
+                <input type="range" min="1" max="10" value="0" class="slider" id="onda3">
+            </div>
+            <div>
+                <label for="check3">Ver Onda 3</label>
+                <input type="checkbox" id="check3" checked>
             </div>  
         </div>
     </div>
 </body>
 
 <script src="script02.js"></script>
+<script src="manipulator.js"></script>
 </html>

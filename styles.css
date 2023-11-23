@@ -39,7 +39,12 @@ canvas{
 }
 
 .wave{
-    width: 30%;
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    flex-wrap: wrap;
+    flex-direction: column;
+    padding: 25px;
 }
 
 .label{
