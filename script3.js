@@ -12,7 +12,7 @@ canvas.height = canvasHeight;
 const circle = {
     x: 0,
     y: 0,
-    amplitude: 1,
+    amplitude: 5,
     angle: 0,
     phase: 0,
     diam: 0.4,
@@ -22,7 +22,7 @@ const circle = {
 const circle2 = {
     x: 0,
     y: 100,
-    amplitude: circle.amplitude + 1,
+    amplitude: circle.amplitude + 5,
     angle: 0,
     phase: 0,
     diam: 0.4,
@@ -32,7 +32,7 @@ const circle2 = {
 const circle3 = {
     x: 0,
     y: 100,
-    amplitude: circle2.amplitude + 1,
+    amplitude: circle2.amplitude + 5,
     angle: 0,
     phase: 0,
     diam: 0.4,

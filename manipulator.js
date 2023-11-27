@@ -78,23 +78,23 @@ Icon.addEventListener("click",function(){
         document.body.style.backgroundImage = "url('/assets/rainbeach.jpg')";
         Cloud.style.display = "block"
         activeIcon = "rain"
-        circle.amplitude = 6
-        circle2.amplitude = 4
-        circle3.amplitude = 10
-        onda1.value = 6
-        onda2.value = 4
-        onda3.value = 10
+        circle.amplitude = 40
+        circle2.amplitude = 25
+        circle3.amplitude = 50
+        onda1.value = 40
+        onda2.value = 25
+        onda3.value = 50
     }else{
         console.log("teste2")
         Icon.src = "./assets/sun.svg"
         document.body.style.backgroundImage = "url('/assets/beach.jpg')";
         Cloud.style.display = "none"
         activeIcon = "sun"
-        circle.amplitude = 1
-        circle2.amplitude = 2
-        circle3.amplitude = 3
-        onda1.value = 1
-        onda2.value = 2
-        onda3.value = 3
+        circle.amplitude = 5
+        circle2.amplitude = 10
+        circle3.amplitude = 15
+        onda1.value = 5
+        onda2.value = 10
+        onda3.value = 15
     }
 });
