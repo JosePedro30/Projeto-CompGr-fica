@@ -34,7 +34,7 @@ Check1.addEventListener("change",function(){
     }else{
         console.log("not check")
         circle.amplitude = 0
-        circle.start = 150
+        circle.start = 200
     }
 },false);
 
@@ -46,7 +46,7 @@ Check2.addEventListener("input",function(){
     }else{
         console.log("not check")
         circle2.amplitude = 0
-        circle2.start = 150
+        circle2.start = 200
     }
 },false);
 
@@ -58,6 +58,43 @@ Check3.addEventListener("input",function(){
     }else{
         console.log("not check")
         circle3.amplitude = 0
-        circle3.start = 150
+        circle3.start = 200
     }
 },false);
+
+
+
+var Icon = document.getElementById("SunIcon");
+var activeIcon = "sun"
+var Cloud = document.getElementById("Cloud");
+var onda1 = document.getElementById("onda1")
+var onda2 = document.getElementById("onda2")
+var onda3 = document.getElementById("onda3")
+
+Icon.addEventListener("click",function(){
+    if(activeIcon == 'sun'){
+        console.log("teste")
+        Icon.src = "./assets/rain.svg"
+        document.body.style.backgroundImage = "url('/assets/rainbeach.jpg')";
+        Cloud.style.display = "block"
+        activeIcon = "rain"
+        circle.amplitude = 6
+        circle2.amplitude = 4
+        circle3.amplitude = 10
+        onda1.value = 6
+        onda2.value = 4
+        onda3.value = 10
+    }else{
+        console.log("teste2")
+        Icon.src = "./assets/sun.svg"
+        document.body.style.backgroundImage = "url('/assets/beach.jpg')";
+        Cloud.style.display = "none"
+        activeIcon = "sun"
+        circle.amplitude = 1
+        circle2.amplitude = 2
+        circle3.amplitude = 3
+        onda1.value = 1
+        onda2.value = 2
+        onda3.value = 3
+    }
+});

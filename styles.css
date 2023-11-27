@@ -23,7 +23,7 @@ body{
 
 canvas{
     width: 100%;
-    height: 500px;
+    height: 600px;
     background-color: transparent;
 }
 
@@ -58,4 +58,73 @@ canvas{
     width: 50px;
     height: 100%;
     margin: 10px;
+}
+
+.weather-bar{
+    width: 100%;
+    height: 250px;
+    position: absolute;
+    top:0;
+    border-bottom: red;
+    display: flex;
+    margin: 15px;
+    align-items: flex-start;
+}
+
+.cloud{
+    width: 85%;
+    height: 100%;
+}
+
+.sun{
+    margin-top: 25px;
+    display: flex;
+    width: 15%;
+    height: 50%;
+    justify-content: center;
+    align-items: center;
+}
+
+.sun:hover{
+    cursor: pointer;
+}
+
+#SunIcon{
+    width: 100%;
+    height: 100%;
+    animation: SunAnimation 1s;
+    animation-iteration-count: infinite;
+    animation-direction: alternate;
+}
+
+@keyframes SunAnimation {
+    from {
+        width: 100%;
+        height: 100%;
+    }
+    to {
+        width: 90%;
+        height: 90%;
+    }
+}
+
+#Cloud{
+    display: none;
+    width: 25%;
+    height: 100%;
+    animation: CloudAnimation 5s;
+    animation-iteration-count: infinite;
+    animation-direction: alternate;
+    position: absolute;
+}
+
+@keyframes CloudAnimation {
+    from {
+        left: 0;
+        right: 65%;
+    }
+    to {
+        right: 0;
+        left: 65%;
+    }
 }

@@ -54,7 +54,6 @@ function Render() {
 
     // Verificar se o círculo ultrapassou o limite direito do canvas
     if ((circle.x > canvas.width + circle.diam) || (circle2.x > canvas.width + circle.diam) || (circle3.x > canvas.width + circle.diam)) {
-        console.log("teste")
         ctx.clearRect(0, 0, canvas.width, canvas.height);
         circle.x = 0;
         circle2.x = 0;
