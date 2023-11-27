@@ -30,11 +30,11 @@ Check1.addEventListener("change",function(){
     if(this.checked){
         console.log("check")
         circle.amplitude = 1
-        circle.start = 135
+        circle.start = 600
     }else{
         console.log("not check")
         circle.amplitude = 0
-        circle.start = 200
+        circle.start = 800
     }
 },false);
 
@@ -42,11 +42,11 @@ Check2.addEventListener("input",function(){
     if(this.checked){
         console.log("check")
         circle2.amplitude = circle.amplitude + 1
-        circle2.start = 115
+        circle2.start = 500
     }else{
         console.log("not check")
         circle2.amplitude = 0
-        circle2.start = 200
+        circle2.start = 800
     }
 },false);
 
@@ -54,11 +54,11 @@ Check3.addEventListener("input",function(){
     if(this.checked){
         console.log("check")
         circle3.amplitude = circle2.amplitude + 1
-        circle3.start = 95
+        circle3.start = 400
     }else{
         console.log("not check")
         circle3.amplitude = 0
-        circle3.start = 200
+        circle3.start = 800
     }
 },false);
 
