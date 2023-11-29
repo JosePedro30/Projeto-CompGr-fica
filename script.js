@@ -1,122 +1,119 @@
 const canvas = document.getElementById("canvas");
 const ctx = canvas.getContext("2d");
 
-var amplitude = 50;
-var frequency = 0.05;
-var phase = 0;
-ctx.lineWidth = 0,2;
+// Defina o tamanho desejado do Canvas
+const canvasWidth = window.innerWidth  // Largura igual à largura da janela
+const canvasHeight = 500   // Altura fixa
 
-var wiggleAmplitude = 5;
+// Defina o tamanho do canvas
+canvas.width = canvasWidth;
+canvas.height = canvasHeight;
 
+const circle = {
+    x: 0,
+    y: 0,
+    amplitude: 3,
+    angle: 0,
+    phase: 0,
+    diam: 0.4,
+    start: 400,
+};
 
-diam = 10
+const circle2 = {
+    x: 0,
+    y: 100,
+    amplitude: circle.amplitude + 3,
+    angle: 0,
+    phase: 0,
+    diam: 0.4,
+    start: 300,
+};
 
-function Onda() {
-    ctx.moveTo(0, canvas.height / 2); //mover para a posição central
+const circle3 = {
+    x: 0,
+    y: 100,
+    amplitude: circle2.amplitude + 3,
+    angle: 0,
+    phase: 0,
+    diam: 0.4,
+    start: 200,
+};
 
-    amplitude += 0.5 * wiggleAmplitude - wiggleAmplitude / 2;
+function Render() {
+    ctx.fillStyle = "#131E3A";
+    //ctx.clearRect(0, 0, canvas.width, canvas.height);
 
-    for(var x = 0; x < canvas.width - (canvas.width / 2); x++) {
-        
-        var y = amplitude * Math.sin(frequency * x + phase);
+    circle.x = circle.x + 0.5;  // Movendo o círculo para a direita
 
-        if(y>0){ //metade de baixo
-            ctx.strokeStyle = "red";
-            ctx.fillStyle = "black";
-            if(y>0 && y<10){
-                ctx.clearRect(0, 0, canvas.width, canvas.height);
-                ctx.beginPath();
-                ctx.arc(x, y + canvas.height / 2, diam, 0, 2 * Math.PI);
-                ctx.closePath();
-                ctx.fill();
-                ctx.stroke();
-            }
-            if(y>10 && y<20){
-                ctx.clearRect(0, 0, canvas.width, canvas.height);
-                ctx.beginPath();
-                ctx.arc(x, y + canvas.height / 2, diam-1, 0, 2 * Math.PI);
-                ctx.closePath();
-                ctx.fill();
-                ctx.stroke();
-            }
-            if(y>20 && y<30){
-                ctx.clearRect(0, 0, canvas.width, canvas.height);
-                ctx.beginPath();
-                ctx.arc(x, y + canvas.height / 2, diam-2, 0, 2 * Math.PI);
-                ctx.closePath();
-                ctx.fill();
-                ctx.stroke();
-            }
-            if(y>30 && y<40){
-                ctx.clearRect(0, 0, canvas.width, canvas.height);
-                ctx.beginPath();
-                ctx.arc(x, y + canvas.height / 2, diam-3, 0, 2 * Math.PI);
-                ctx.closePath();
-                ctx.fill();
-                ctx.stroke();
-            }
-            if(y>40 && y<50){
-                ctx.clearRect(0, 0, canvas.width, canvas.height);
-                ctx.beginPath();
-                ctx.arc(x, y + canvas.height / 2, diam-4, 0, 2 * Math.PI);
-                ctx.closePath();
-                ctx.fill();
-                ctx.stroke();
-            }
-        }
+    // Atualizando a posição y do círculo com uma onda senoidal
+    circle.y = circle.start + circle.amplitude * Math.sin(circle.angle + circle.phase);
+    circle.angle += 0.05;
 
-        if(y<0){ //metade do topo
-            if(y<0 && y>-10){
-                ctx.clearRect(0, 0, canvas.width, canvas.height);
-                ctx.beginPath();
-                ctx.arc(x, y + canvas.height / 2, diam, 0, 2 * Math.PI);
-                ctx.closePath();
-                ctx.fill();
-                ctx.stroke();
-            }
-            if(y<-10 && y>-20){
-                ctx.clearRect(0, 0, canvas.width, canvas.height);
-                ctx.beginPath();
-                ctx.arc(x, y + canvas.height / 2, diam-1, 0, 2 * Math.PI);
-                ctx.closePath();
-                ctx.fill();
-                ctx.stroke();
-            }
-            if(y<-20 && y>-30){
-                ctx.clearRect(0, 0, canvas.width, canvas.height);
-                ctx.beginPath();
-                ctx.arc(x, y + canvas.height / 2, diam-2, 0, 2 * Math.PI);
-                ctx.closePath();
-                ctx.fill();
-                ctx.stroke();
-            }
-            if(y<-30 && y>-40){
-                ctx.clearRect(0, 0, canvas.width, canvas.height);
-                ctx.beginPath();
-                ctx.arc(x, y + canvas.height / 2, diam-3, 0, 2 * Math.PI);
-                ctx.closePath();
-                ctx.fill();
-                ctx.stroke();
-            }
-            if(y<-40 && y>-50){
-                ctx.clearRect(0, 0, canvas.width, canvas.height);
-                ctx.beginPath();
-                ctx.arc(x, y + canvas.height / 2, diam-4, 0, 2 * Math.PI);
-                ctx.closePath();
-                ctx.fill();
-                ctx.stroke();
-            }
+    // Desenhando o círculo
+    ctx.beginPath();
+    ctx.arc(circle.x, circle.y, circle.diam, 0, 2 * Math.PI);
+    ctx.fill();
+    ctx.closePath();
 
-        }
+    //Quadrado
+    ctx.beginPath();
+    ctx.rect(circle.x - (circle.diam), circle.y, circle.diam * 2, canvas.height);
+    ctx.fill();
 
+    // Verificar se o círculo ultrapassou o limite direito do canvas
+    if ((circle.x > canvas.width + circle.diam) || (circle2.x > canvas.width + circle.diam) || (circle3.x > canvas.width + circle.diam)) {
+        ctx.clearRect(0, 0, canvas.width, canvas.height);
+        circle.x = 0;
+        circle2.x = 0;
+        circle3.x = 0;
     }
 
+    /// 2 
+    ctx.fillStyle = "#1134A6";
+    //ctx.clearRect(0, 0, canvas.width, canvas.height);
 
-    phase += 0.05;
+    circle2.x = circle.x + 0.3;  // Movendo o círculo para a direita
 
-    requestAnimationFrame(Onda);
+    // Atualizando a posição y do círculo com uma onda senoidal
+    circle2.y = circle2.start + circle2.amplitude * Math.sin(circle2.angle + circle2.phase);
+    circle2.angle += 0.05;
 
+    // Desenhando o círculo
+    ctx.beginPath();
+    ctx.arc(circle2.x, circle2.y, circle2.diam, 0, 2 * Math.PI);
+    ctx.fill();
+    ctx.closePath();
+
+    //Quadrado
+    ctx.beginPath();
+    ctx.rect(circle2.x - (circle2.diam), circle2.y, circle2.diam * 2, circle.y - circle2.y);
+    ctx.fill();
+
+
+    //// 3
+
+    ctx.fillStyle = "#008ECC";
+    //ctx.clearRect(0, 0, canvas.width, canvas.height);
+
+    circle3.x = circle2.x + 0.3;  // Movendo o círculo para a direita
+
+    // Atualizando a posição y do círculo com uma onda senoidal
+    circle3.y = circle3.start + circle3.amplitude * Math.sin(circle3.angle + circle3.phase);
+    circle3.angle += 0.05;
+
+    // Desenhando o círculo
+    ctx.beginPath();
+    ctx.arc(circle3.x, circle3.y, circle3.diam, 0, 2 * Math.PI);
+    ctx.fill();
+    ctx.closePath();
+
+    //Quadrado
+    ctx.beginPath();
+    ctx.rect(circle3.x - (circle3.diam), circle3.y, circle3.diam * 2, circle2.y - circle3.y);
+    ctx.fill();
+
+
+    requestAnimationFrame(Render);
 }
 
-Onda()
-
+Render();
